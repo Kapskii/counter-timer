@@ -1,0 +1,12 @@
+.container.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    width: 30%;
+    height: 30%;
+    gap: 3px;
+    background-color: whitesmoke;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
