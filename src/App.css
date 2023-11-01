@@ -1,13 +1,49 @@
-
-
-h1, h2, h3, h4, h5, p, span {
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span {
   margin: 0;
   padding: 0;
 }
 
+li,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+
 .App {
   display: flex;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background: rgb(220, 220, 220);
+}
+
+.header ul {
+  display: flex;
+  gap: 20px;
+}
+
+.wrapper {
+  display: flex;
   align-items: center;
-  justify-content: space-around;
-  height: 100vh;
+  justify-content: center;
+  height: 730px;
+  width: 100%;
+}
+
+.blockWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30%;
 }

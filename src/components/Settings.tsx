@@ -17,15 +17,9 @@ export const Settings = (props: PropsType) => {
 
 
     const setSettings = () => {
-        const {max, start} = settingState; //settingState.max, settingState.start
-
-        props.setState({
-            ...props.state,
-            ...settingState,
-            count: start
-        })
-        // props.count[1](state.start)
-        // props.setMax(state.max)
+        // props.setState({ ...props.state, count: settingState.start, max: settingState.max, start: settingState.start })
+        const {start} = settingState;
+        props.setState({...props.state,...settingState,count: start })
     }
 
     const onChangeMaxHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -46,11 +40,11 @@ export const Settings = (props: PropsType) => {
             <Input
                 callBack={onChangeMaxHandler}
                 title='max value'
-                />
+            />
             <Input
                 callBack={onChangeStartHandler}
                 title='start value'
-                />
+            />
             <ActionButton title="Set" callBack={setSettings} />
         </div>
     )
