@@ -12,10 +12,14 @@ type PropsType = {
 export const Settings = (props: PropsType) => {
   const [settingState, setSettingState] = useState({ start: 0, max: 0 });
 
+const error = (settingState.max <= settingState.start || settingState.start < 0)
+
   const setSettings = () => {
     // props.setState({ ...props.state, count: settingState.start, max: settingState.max, start: settingState.start })
     const { start } = settingState;
+    if (!error) {
     props.setState({ ...props.state, ...settingState, count: start });
+    }
   };
 
   const onChangeMaxHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +37,7 @@ export const Settings = (props: PropsType) => {
       <h1>Settings</h1>
       <Input callBack={onChangeMaxHandler} title="max value" />
       <Input callBack={onChangeStartHandler} title="start value" />
-      <ActionButton title="Set" callBack={setSettings} />
+      <ActionButton disabled={error} title="Set" callBack={setSettings} />
     </div>
   );
 };

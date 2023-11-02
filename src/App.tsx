@@ -3,6 +3,7 @@ import "./App.css";
 import { Link, Route, Routes } from "react-router-dom";
 import { Counter } from "./features/Counter/Counter";
 import { Timer } from "./features/Timer/Timer";
+import { TimerBox } from "./features/Timer/TimerBox";
 
 export type CounterDataType = {
   count: number;
@@ -28,7 +29,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Counter />} />
             <Route path="/counter" element={<Counter />} />
-            <Route path="/timer" element={<Timer days={1} hours={0} minutes={0} seconds={1} />} />
+            <Route path="/timer" element={<TimerBox/>} />
           </Routes>
         </div>
       </section>
