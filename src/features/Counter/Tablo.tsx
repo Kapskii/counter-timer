@@ -20,9 +20,11 @@ export const Tablo = (props: CounterTypeProps) => {
         props.setState({ ...props.state, count: props.state.start });
     };
 
+    const max = props.state.count === props.state.max
+    
     return (
         <div className={s.container}>
-            <h1 className={s.title}>{props.state.count}</h1>
+            <h1 className={max ? s.titleMax : s.title}>{props.state.count}</h1>
             <div className={s.buttonContainer}>
                 <ActionButton title="+" callBack={setCountHandler} />
                 <ActionButton title="Reset" callBack={resetCountHandler} />

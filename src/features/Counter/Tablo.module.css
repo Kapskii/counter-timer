@@ -17,3 +17,13 @@
 .title {
   font-size: 60px;
 }
+
+.titleMax {
+  font-size: 80px;
+  color: red;
+}
+
+.miniTitle {
+  font-size: 20px;
+  color: red
+}

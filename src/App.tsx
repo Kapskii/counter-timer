@@ -28,7 +28,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Counter />} />
             <Route path="/counter" element={<Counter />} />
-            <Route path="/timer" element={<Timer days={3} hours={0} minutes={0} seconds={3} />} />
+            <Route path="/timer" element={<Timer days={1} hours={0} minutes={0} seconds={1} />} />
           </Routes>
         </div>
       </section>

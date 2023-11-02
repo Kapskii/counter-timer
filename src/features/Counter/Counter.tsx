@@ -4,7 +4,7 @@ import { Settings } from "./Settings";
 
 export const Counter = () => {
 
-    const [state, setState] = useState({ count: 0, max: 0, start: 0 });
+    const [state, setState] = useState({ count: 0, max: 5, start: 0 });
 
     return (
         <>
