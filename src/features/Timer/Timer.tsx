@@ -5,16 +5,15 @@ import s from "./Timer.module.css"
 
 export const Timer = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }) => {
 
-    const [pause, setPause] = useState(false)
-    const [end, setEnd] = useState(false)
+    const [status, setStatus] = useState({pause: false, end: false})
     const [time, setTime] = useState({ d: days, h: hours, m: minutes, s: seconds });
 
     const tick = () => {
-        if (pause || end) return;
+        if (status.pause || status.end) return;
         setTime(prevTime => {
             let { d, h, m, s } = prevTime;
             if (d === 0 && h === 0 && m === 0 && s === 0) {
-                setEnd(true);
+                setStatus({...status, end:true});
             } else if (h === 0 && m === 0 && s === 0) {
                 d -= 1;
                 h = 23;
@@ -36,17 +35,14 @@ export const Timer = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }) => {
 
     const reset = () => {
         setTime({ d: +days, h: +hours, m: +minutes, s: +seconds });
-        setPause(false);
-        setEnd(false);
+        setStatus({...status, pause: false});
+        setStatus({...status, end: false});
     };
 
     useEffect(() => {
         const timerID = setInterval(tick, 1000);
         return () => clearInterval(timerID);
-    }, [pause, end]);
-
-
-    const date = new Date();
+    }, [status.pause, status.end]);
 
     return (
         <div className={s.container}>
@@ -59,7 +55,7 @@ export const Timer = ({ days = 0, hours = 0, minutes = 0, seconds = 0 }) => {
                 `}
             </h3>
             <div>
-                <ActionButton title={pause ? 'Resume' : 'Pause'} callBack={() => setPause(!pause)} />
+                <ActionButton title={status.pause ? 'Resume' : 'Pause'} callBack={() => setStatus({...status, pause:!status.pause})} />
                 <ActionButton title={"Restart"} callBack={reset} />
             </div>
         </div>
